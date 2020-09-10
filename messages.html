@@ -22,7 +22,11 @@
       href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
       rel="stylesheet"
     />
-
+    <!-- Custom styles for this page -->
+    <link
+      href="./static/vendor/datatables/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
     <!-- Custom styles for this template-->
     <link href="./static/css/main.min.css" rel="stylesheet" />
   </head>
@@ -52,7 +56,7 @@
         <hr class="sidebar-divider my-0" />
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a
@@ -86,12 +90,10 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Countries:</h6>
-              <a class="collapse-item" href="./alldestinations.html"
-                >All Destination Countries</a
-              >
-              <a class="collapse-item" href="./countrybaseddest.html">Nepal</a>
-              <a class="collapse-item" href="./countrybaseddest.html">TIbet</a>
-              <a class="collapse-item" href="./countrybaseddest.html">Butan</a>
+              <a class="collapse-item" href="#">All Destination Countries</a>
+              <a class="collapse-item" href="#">Nepal</a>
+              <a class="collapse-item" href="#">TIbet</a>
+              <a class="collapse-item" href="#">Butan</a>
             </div>
           </div>
         </li>
@@ -117,9 +119,9 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Bookings:</h6>
-              <a class="collapse-item" href="./booking.html">Pending</a>
-              <a class="collapse-item" href="./booking.html">Confirmed</a>
-              <a class="collapse-item" href="./booking.html">Completed</a>
+              <a class="collapse-item" href="#">Pending</a>
+              <a class="collapse-item" href="#">Confirmed</a>
+              <a class="collapse-item" href="#">Completed</a>
             </div>
           </div>
         </li>
@@ -151,7 +153,7 @@
           >
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">HomePage mangament:</h6>
-              <a class="collapse-item" href="./introImage.html">Intro Image</a>
+              <a class="collapse-item" href="#">Intro Image</a>
             </div>
           </div>
         </li>
@@ -162,14 +164,14 @@
         <!-- Heading -->
         <div class="sidebar-heading">Contact us messages</div>
         <!-- Nav Item - Tables -->
-        <li class="nav-item">
-          <a class="nav-link" href="./messages.html">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
             <i class="fas fa-fw fa-table"></i>
             <span>Messages</span></a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./contact.html">
+          <a class="nav-link" href="#">
             <i class="fas fa-fw fa-table"></i>
             <span>Contact Details</span></a
           >
@@ -224,7 +226,7 @@
             <!-- Topbar Navbar -->
             <ul class="navbar-nav ml-auto">
               <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-              <li class="nav-item dropdown no-arrow d-sm-none">
+              <!-- <li class="nav-item dropdown no-arrow d-sm-none">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -235,9 +237,9 @@
                   aria-expanded="false"
                 >
                   <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div
+                </a> -->
+              <!-- Dropdown - Messages -->
+              <!-- <div
                   class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                   aria-labelledby="searchDropdown"
                 >
@@ -258,7 +260,7 @@
                     </div>
                   </form>
                 </div>
-              </li>
+              </li> -->
 
               <!-- Nav Item - Alerts -->
               <li class="nav-item dropdown no-arrow mx-1">
@@ -420,7 +422,232 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-4 text-gray-800">Recent Messages</h1>
+
+            <div class="card shadow mb-4 mt-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Messages</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Full Name</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th class="text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Full Name</th>
+                        <th>Address</th>
+                        <th>Contact Number</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th class="text-center">Action</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>Australia</td>
+                        <td>9848######</td>
+                        <td>johndow@gmail.com</td>
+                        <td>
+                          <button
+                            class="btn btn-secondary btn-sm"
+                            data-toggle="modal"
+                            data-target="#messagemodal2"
+                          >
+                            Message
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="#" class="btn btn-info btn-sm">View</a>
+                          <a
+                            href="#Fdfdfd"
+                            class="btn btn-danger m-1 btn-delete btn-sm"
+                          >
+                            Delete
+                          </a>
+                        </td>
+
+                        <!-- ! message modal change id of modal a/c to table row -->
+                        <div
+                          class="modal fade"
+                          id="messagemodal2"
+                          tabindex="-1"
+                          role="dialog"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  message
+                                </h5>
+                                <button
+                                  type="button"
+                                  class="close"
+                                  data-dismiss="modal"
+                                  aria-label="Close"
+                                >
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur
+                                  adipisicing elit. Iste, porro temporibus, modi
+                                  expedita debitis, vero quos praesentium neque
+                                  perspiciatis iusto impedit? Perferendis animi
+                                  ratione nesciunt aliquid maxime neque
+                                  assumenda quibusdam. 1
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                      <tr>
+                        <td>Mary Doe</td>
+                        <td>Australia</td>
+                        <td>9848######</td>
+                        <td>johndow@gmail.com</td>
+                        <td>
+                          <button
+                            class="btn btn-secondary btn-sm"
+                            data-toggle="modal"
+                            data-target="#messagemodal3"
+                          >
+                            Message
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="#" class="btn btn-info btn-sm">View</a>
+                          <a
+                            href="#Fdfdfd"
+                            class="btn btn-danger m-1 btn-delete btn-sm"
+                          >
+                            Delete
+                          </a>
+                        </td>
+
+                        <!-- ! message modal change id of modal a/c to table row -->
+                        <div
+                          class="modal fade"
+                          id="messagemodal3"
+                          tabindex="-1"
+                          role="dialog"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  message
+                                </h5>
+                                <button
+                                  type="button"
+                                  class="close"
+                                  data-dismiss="modal"
+                                  aria-label="Close"
+                                >
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur
+                                  adipisicing elit. Iste, porro temporibus, modi
+                                  expedita debitis, vero quos praesentium neque
+                                  perspiciatis iusto impedit? Perferendis animi
+                                  ratione nesciunt aliquid maxime neque
+                                  assumenda quibusdam. 2
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                      <tr>
+                        <td>John Doe</td>
+                        <td>nepal</td>
+                        <td>9848######</td>
+                        <td>johndow@gmail.com</td>
+                        <td>
+                          <button
+                            class="btn btn-secondary btn-sm"
+                            data-toggle="modal"
+                            data-target="#messagemodal1"
+                          >
+                            Message
+                          </button>
+                        </td>
+                        <td class="text-center">
+                          <a href="#" class="btn btn-info btn-sm">View</a>
+                          <a
+                            href="#Fdfdfd"
+                            class="btn btn-danger m-1 btn-delete btn-sm"
+                          >
+                            Delete
+                          </a>
+                        </td>
+
+                        <!-- ! message modal change id of modal a/c to table row -->
+                        <div
+                          class="modal fade"
+                          id="messagemodal1"
+                          tabindex="-1"
+                          role="dialog"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  message
+                                </h5>
+                                <button
+                                  type="button"
+                                  class="close"
+                                  data-dismiss="modal"
+                                  aria-label="Close"
+                                >
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>
+                                  Lorem ipsum dolor sit amet consectetur
+                                  adipisicing elit. Iste, porro temporibus, modi
+                                  expedita debitis, vero quos praesentium neque
+                                  perspiciatis iusto impedit? Perferendis animi
+                                  ratione nesciunt aliquid maxime neque
+                                  assumenda quibusdam. 3
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -493,5 +720,11 @@
 
     <!-- Custom scripts for all pages-->
     <script src="./static/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="./static/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="./static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="./static/js/main.js"></script>
   </body>
 </html>
